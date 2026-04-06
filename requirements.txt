@@ -1,0 +1,12 @@
+streamlit
+pandas
+numpy
+plotly
+tabulate
+pydantic
+requests
+python-dotenv
+groq
+scikit-learn
+beautifulsoup4
+sentence-transformers
