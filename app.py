@@ -15,7 +15,7 @@ from schemas import TestCase, EvaluationResult
 
 st.set_page_config(page_title="Agent Testing Framework", layout="wide")
 
-st.title("AI Agent Testing Framework")
+st.title("Agent Testing Framework")
 
 # =========================
 # INITIALIZE
