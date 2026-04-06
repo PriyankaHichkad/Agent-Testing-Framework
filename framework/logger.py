@@ -3,8 +3,10 @@ from datetime import datetime
 import os
 
 class Logger:
-    def __init__(self, file_path=os.path.join(os.path.dirname(__file__), "evaluation/logs.jsonl")):
-        self.file_path = file_path
+    def __init__(self):
+        BASE_DIR = os.path.dirname(os.path.dirname(__file__))
+        self.file_path = os.path.join(BASE_DIR, "evaluation", "logs.jsonl")
+        os.makedirs(os.path.dirname(self.file_path), exist_ok=True)
 
     def log(self, data):
         # convert datetime
