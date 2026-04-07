@@ -1,5 +1,6 @@
 import gspread
-from google.oauth2 import service_account
+#from google.oauth2 import service_account
+from google.oauth2.service_account import Credentials
 #from oauth2client.service_account import ServiceAccountCredentials
 import streamlit as st
 from datetime import datetime
@@ -15,7 +16,7 @@ class GoogleLogger:
         # Read from Streamlit secrets
         creds_dict = st.secrets["gcp_service_account"]
 
-        creds = service_account.Credentials.from_service_account_file(
+        creds = Credentials.from_service_account_info(
             creds_dict, scope
         )
 
