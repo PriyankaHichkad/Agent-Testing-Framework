@@ -67,7 +67,11 @@ with tab1:
                     validated_result = EvaluationResult(**result)
                     result = validated_result.model_dump()
 
-                    logger.log(result)
+                    try:
+                        logger.log(result)
+                        st.success("✅ Logged successfully")
+                    except Exception as e:
+                        st.error(f"Logging failed: {e}")
 
             except Exception as e:
                 st.error(f"Validation/Error: {e}")
