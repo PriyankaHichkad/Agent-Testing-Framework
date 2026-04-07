@@ -10,3 +10,5 @@ groq
 scikit-learn
 beautifulsoup4
 sentence-transformers
+gspread
+oauth2client
