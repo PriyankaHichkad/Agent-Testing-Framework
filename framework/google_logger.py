@@ -22,11 +22,7 @@ class GoogleLogger:
 
         client = gspread.authorize(creds)
 
-        try:
-            self.sheet = client.open_by_key("1LSgNvS5NFIf0DSwfda6zpiZmjVRv0cgKCiHmagJ0jSc").sheet1
-            st.success("Sheet connected")
-        except Exception as e:
-            st.error(f"Sheet connection failed: {e}")
+        self.sheet = client.open_by_key("1LSgNvS5NFIf0DSwfda6zpiZmjVRv0cgKCiHmagJ0jSc").sheet1
 
     def log(self, data):
         row = [
