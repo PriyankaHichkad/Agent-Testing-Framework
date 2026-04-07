@@ -11,8 +11,8 @@ from framework.report import generate_report
 from framework.utils import load_test_cases
 from framework.adversarial import AdversarialGenerator
 from framework.logger import Logger
+from framework.google_logger import GoogleLogger
 from schemas import TestCase, EvaluationResult
-from google_logger import GoogleLogger
 
 
 st.set_page_config(page_title="Agent Testing Framework", layout="wide")
