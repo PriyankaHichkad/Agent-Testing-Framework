@@ -22,7 +22,7 @@ class GoogleLogger:
 
         client = gspread.authorize(creds)
 
-        self.sheet = client.open_by_key("https://docs.google.com/spreadsheets/d/1LSgNvS5NFIf0DSwfda6zpiZmjVRv0cgKCiHmagJ0jSc/edit?usp=sharing").sheet1
+        self.sheet = client.open_by_key("1LSgNvS5NFIf0DSwfda6zpiZmjVRv0cgKCiHmagJ0jSc").sheet1
 
     def log(self, data):
         row = [
