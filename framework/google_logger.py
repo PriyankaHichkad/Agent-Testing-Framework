@@ -17,7 +17,7 @@ class GoogleLogger:
         creds_dict = st.secrets["gcp_service_account"]
 
         creds = Credentials.from_service_account_info(
-            creds_dict, scope
+            creds_dict, scopes=scope
         )
 
         client = gspread.authorize(creds)
