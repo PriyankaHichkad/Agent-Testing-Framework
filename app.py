@@ -11,8 +11,8 @@ from framework.report import generate_report
 from framework.utils import load_test_cases
 from framework.adversarial import AdversarialGenerator
 from framework.logger import Logger
-from framework.google_logger import GoogleLogger
 from schemas import TestCase, EvaluationResult
+from google_logger import GoogleLogger
 
 
 st.set_page_config(page_title="Agent Testing Framework", layout="wide")
@@ -195,7 +195,13 @@ with tab2:
                     validated_result = EvaluationResult(**result)
                     result = validated_result.model_dump()
 
-                    logger.log(result)
+                    try:
+                        logger.log(result)
+                        glogger = GoogleLogger()
+                        glogger.log(result)
+                        st.success("Logged successfully")
+                    except Exception as e:
+                        st.error(f"Logging failed: {e}")
 
                 except Exception as e:
                     st.error(f"Validation/Error: {e}")
@@ -336,11 +342,12 @@ with tab3:
                 timings.append(end - start)
                 
                 try:
-                    from framework.logger import Logger
-                    logger = Logger()
                     logger.log(result)
-                except:
-                    logger = None
+                    glogger = GoogleLogger()
+                    glogger.log(result)
+                    st.success("Logged successfully")
+                except Exception as e:
+                    st.error(f"Logging failed: {e}")
 
                 progress.progress((i + 1) / total)
 
@@ -399,18 +406,6 @@ with tab3:
         st.subheader("Detailed Results")
         st.dataframe(results_df, use_container_width=True)
 
-        st.markdown("### Clean Table")
-
-        clean_df = results_df[[
-            "input",
-            "output",
-            "correctness",
-            "safety_llm",
-            "safety_rule",
-        ]]
-
-        st.dataframe(clean_df, use_container_width=True)
-
     # =========================================================
     # INTERACTIVE DASHBOARD
     # =========================================================
@@ -457,7 +452,8 @@ with tab3:
         st.markdown("### Metric Comparison")
 
         comparison_df = pd.DataFrame({
-            "Metric": ["Correctness", "Relevance", "Safety_LLM", "Safety_Rule", "Web_Safe"],
+            #"Metric": ["Correctness", "Relevance", "Safety_LLM", "Safety_Rule", "Web_Safe"],
+            "Metric": ["Correctness", "Relevance", "Safety_LLM", "Safety_Rule"],
             "Score": [
                 filtered_df["correctness"].mean(),
                 filtered_df["relevance"].mean(),
@@ -532,13 +528,6 @@ with tab3:
         else:
             st.warning(f"{len(disagreement_df)} disagreement cases found")
             st.dataframe(disagreement_df, use_container_width=True)
-
-        # =========================
-        # DETAILED TABLE
-        # =========================
-
-        st.markdown("### Detailed Results Table")
-        st.dataframe(filtered_df, use_container_width=True)
 
 
     # =========================================================
