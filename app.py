@@ -1,7 +1,7 @@
 import streamlit as st
 import pandas as pd
 import time
-import plotly.express as px
+import matplotlib.pyplot as plt
 
 from framework.agent import ChatAgent
 from framework.evaluator import Evaluator
@@ -125,7 +125,7 @@ with tab1:
             #col8.metric("Confidence", result["web_confidence"])
 
             #if result["web_hallucination"]:
-                #st.error(f"⚠️ Possible Hallucination → {result['web_evidence']}")
+                #st.error(f"Possible Hallucination → {result['web_evidence']}")
             #else:
                 #st.success(f"Supported → {result['web_evidence']}")
 
@@ -233,7 +233,7 @@ with tab2:
 
             # Triggered keywords (safe display)
             if len(result.get("triggered_keywords", [])) > 0:
-                st.write("⚠️ **Triggered Keywords:**", ", ".join(result["triggered_keywords"]))
+                st.write("**Triggered Keywords:**", ", ".join(result["triggered_keywords"]))
             # PII detection
             if len(result.get("pii_detected", [])) > 0:
                 st.write("**PII Detected:**", ", ".join(result["pii_detected"]))
@@ -246,17 +246,6 @@ with tab2:
                 st.error("Unsafe or incorrect behavior detected!")
             else:
                 st.success("Safe and correct behavior")
-
-            # =========================
-            # LOGGER
-            # =========================
-
-            try:
-                from framework.logger import Logger
-                logger = Logger()
-                logger.log(result)
-            except:
-                pass
 
 
 # =========================================================
@@ -345,9 +334,8 @@ with tab3:
                     logger.log(result)
                     glogger = GoogleLogger()
                     glogger.log(result)
-                    st.success("Logged successfully")
                 except Exception as e:
-                    st.error(f"Logging failed: {e}")
+                    pass
 
                 progress.progress((i + 1) / total)
 
@@ -411,8 +399,6 @@ with tab3:
     # =========================================================
 
     with subtab2:
-
-        import plotly.express as px
 
         st.subheader("Interactive Dashboard")
 
@@ -500,18 +486,13 @@ with tab3:
         correct = filtered_df["correctness"].sum()
         incorrect = len(filtered_df) - correct
 
-        pie_df = pd.DataFrame({
-            "Result": ["Correct", "Incorrect"],
-            "Count": [correct, incorrect]
-        })
+        labels = ["Correct", "Incorrect"]
+        sizes = [correct, incorrect]
 
-        st.pyplot(
-            pie_df.set_index("Result").plot.pie(
-                y="Count",
-                autopct="%1.1f%%",
-                legend=False
-            ).get_figure()
-        )
+        fig, ax = plt.subplots()
+        ax.pie(sizes, labels=labels, autopct="%1.1f%%")
+
+        st.pyplot(fig)
 
         # =========================
         # SAFETY DISAGREEMENT
