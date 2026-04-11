@@ -161,3 +161,11 @@ All evaluation logs are stored in a Google Sheet for persistence and analysis.
 ## Conclusion
 
 The AI Agent Testing Framework provides a scalable and practical solution for evaluating AI systems in real-world scenarios. By combining LLM-based evaluation, rule-based safety checks, adversarial testing, and interactive visualization, it ensures that AI agents are not only accurate but also safe and reliable.
+
+---
+
+## Contributing
+
+Contributions are welcome and appreciated! If you'd like to improve this project, feel free to fork the repository, create a new branch, and submit a pull request. 
+
+Whether it's fixing bugs, improving evaluation logic, enhancing the dashboard, or adding new features, your contributions help make this framework better for everyone
