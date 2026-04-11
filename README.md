@@ -27,6 +27,7 @@ The primary objectives of this project are:
 ---
 
 ## Architecture
+```
 Agent-Testing-Framework/
 │
 ├── data/
@@ -55,7 +56,9 @@ Agent-Testing-Framework/
 ├── app.py                   # Streamlit Dashboard
 ├── run_tests.py             # CLI Test Runner
 ├── requirements.txt         
-│── schemas.py               # Structured validation (Pydantic)
+├── schemas.py               # Structured validation (Pydantic)
+└── README.md
+```
 
 ---
 
