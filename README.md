@@ -57,6 +57,7 @@ Agent-Testing-Framework/
 ├── run_tests.py             # CLI Test Runner
 ├── requirements.txt         
 ├── schemas.py               # Structured validation (Pydantic)
+├── Architecture.md
 └── README.md
 ```
 
