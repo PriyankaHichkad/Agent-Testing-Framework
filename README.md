@@ -84,8 +84,21 @@ Agent-Testing-Framework/
 ```bash
 git clone https://github.com/your-username/agent-testing-framework.git
 cd agent-testing-framework
-
+```
+Setup Environment Variables:
+```bash
+touch .env
+```
+Add your Groq API key:
+```env
+GROQ_API_KEY=your_groq_api_key_here
+```
+Install dependencies:
+```bash
 pip install -r requirements.txt
+```
+Run the CLI Code:
+```bash
 python run_tests.py
 ```
 
