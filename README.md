@@ -128,7 +128,7 @@ All evaluation logs are stored in a Google Sheet for persistence and analysis.
 
 ## Demo Video
 
-- Watch how to use this Github Repo here: https://drive.google.com/file/d/1jfSMX6ced3KJjCgEQtwRGDOCVPllldaU/view?usp=sharing
+- Watch how to use this Github Repo here: https://drive.google.com/file/d/1DRgeXRJRCedfgFjKBr6j0BT63Utpijgz/view?usp=sharing
 - Watch the app demo here: https://drive.google.com/file/d/1LMB9IxhNBV2IvC4KZwhhJWx2P3qBCdAo/view?usp=drive_link
 
 ---
