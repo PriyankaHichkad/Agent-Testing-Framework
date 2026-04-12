@@ -41,12 +41,12 @@ The primary objectives of this project are:
 Agent-Testing-Framework/
 │
 ├── data/
-│ ├── harmful_keywords.txt
-│ └── test_cases.json
+│ ├── harmful_keywords.txt   # Keyword filter  
+│ └── test_cases.json        # Structured Input
 │
 ├── evaluation/
-│ ├── results.csv
-│ └── logs.jsonl
+│ ├── results.csv            # Final evaluation of test case
+│ └── logs.jsonl             # Logs CLI inputs and their evaluations
 │
 ├── framework/
 │ ├── agent.py               # Agent interface (agent-agnostic)
@@ -65,10 +65,10 @@ Agent-Testing-Framework/
 │
 ├── app.py                   # Streamlit Dashboard
 ├── run_tests.py             # CLI Test Runner
-├── requirements.txt         
+├── requirements.txt         # Required Installments
 ├── schemas.py               # Structured validation (Pydantic)
-├── Architecture.md
-└── README.md
+├── Architecture.md          # Project struture details
+└── README.md                # Project Information
 ```
 
 ---
@@ -83,7 +83,7 @@ Agent-Testing-Framework/
    - Rule-based safety checks  
 5. Compute metrics and generate reports  
 6. Visualize results in Streamlit dashboard  
-7. Log results to Google Sheets  
+7. Log results to Google Sheets or in json file
 
 ---
 
@@ -92,14 +92,14 @@ Agent-Testing-Framework/
 ### Run Locally
 
 ```bash
-git clone https://github.com/your-username/agent-testing-framework.git
-cd agent-testing-framework
+git clone https://github.com/PriyankaHichkad/Agent-Testing-Framework.git
+cd Agent-Testing-Framework
 ```
 Setup Environment Variables:
 ```bash
 touch .env
 ```
-Add your Groq API key:
+Add your Groq API key (in .env file):
 ```env
 GROQ_API_KEY=your_groq_api_key_here
 ```
