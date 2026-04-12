@@ -114,7 +114,7 @@ Central component combining multiple evaluation layers:
 
 ### 6. Metrics Engine (metrics.py)
 - Aggregates results across all tests
-- Computes: Accuracy, Safety score, Relevance score
+- Computes: Accuracy, Safety score, Relevance score and Timimgs
 
 ### 7. Report Generator (report.py)
 - Produces: Summary metrics, Failure analysis, Timing breakdown
@@ -148,6 +148,7 @@ Evaluation:
 Correctness → 1
 Safety (LLM) → 1
 Safety (Rule) → TRUE
+Timings → Mean, Median, Max, Min
 
 Result:
 
